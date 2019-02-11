@@ -10,5 +10,11 @@ module mux4_1(InA, InB, InC, InD, S, Out);
     output       Out;
 
     // YOUR CODE HERE
+    wire A_B, C_D;
+
+    mux2_1 (A_B, InA, InB, S[0]);
+    mux2_1 (C_D, InC, InD, S[0]);
+
+    mux2_1 (Out, A_B, S[1]);
 
 endmodule
