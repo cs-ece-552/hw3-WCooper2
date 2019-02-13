@@ -10,17 +10,15 @@ module mux2_1(InA, InB, S, Out);
     output  Out;
 
     // YOUR CODE HERE
-    wire inv_a, inv_b, inv_s, inv_out, A, B;
+    wire inv_s, A, B;
 
     /* Invert the needed input signals */
-    not1 (inv_a, a);
-    not1 (inv_b, b);
-    not1 (inv_s, s);
+    not1 notS (.out(inv_s), .in1(S));
 
-    nor2 (A, inv_a, s);
-    nor2 (B, inv_b, inv_s);
+    nand2 AS (.out(A), .in1(InA), .in2(inv_s));
+    nand2 BS (.out(B), .in1(InB), .in2(S));
 
-    nor2 (inv_out, A, B);
-    not1 (Out, inv_out);
+    nand2 out (.out(Out), .in1(A), .in2(B));
+
 
 endmodule

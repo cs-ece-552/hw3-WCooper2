@@ -12,9 +12,9 @@ module mux4_1(InA, InB, InC, InD, S, Out);
     // YOUR CODE HERE
     wire A_B, C_D;
 
-    mux2_1 (A_B, InA, InB, S[0]);
-    mux2_1 (C_D, InC, InD, S[0]);
+    mux2_1 mux_ab (.Out(A_B), .InA(InA), .InB(InB), .S(S[0]));
+    mux2_1 mux_cd (.Out(C_D), .InA(InC), .InB(InD), .S(S[0]));
 
-    mux2_1 (Out, A_B, S[1]);
+    mux2_1 mux_out (.Out(Out), .InA(A_B), .InB(C_D), .S(S[1]));
 
 endmodule

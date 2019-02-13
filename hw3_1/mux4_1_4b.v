@@ -14,12 +14,10 @@ module mux4_1_4b(InA, InB, InC, InD, S, Out);
     output [N-1:0]  Out;
 
     // YOUR CODE HERE
-    wire b_0, b_1, b_2, b_3;
-    mux4_1(b_0,InA[0],InB[0],InC[0],InD[0],S);
-    mux4_1(b_1,InA[1],InB[1],InC[1],InD[1],S);
-    mux4_1(b_2,InA[2],InB[2],InC[2],InD[2],S);
-    mux4_1(b_3,InA[3],InB[3],InC[3],InD[3],S);
+    mux4_1 bit0 (.Out(Out[0]),.InA(InA[0]),.InB(InB[0]),.InC(InC[0]),.InD(InD[0]),.S(S));
+    mux4_1 bit1 (.Out(Out[1]),.InA(InA[1]),.InB(InB[1]),.InC(InC[1]),.InD(InD[1]),.S(S));
+    mux4_1 bit2 (.Out(Out[2]),.InA(InA[2]),.InB(InB[2]),.InC(InC[2]),.InD(InD[2]),.S(S));
+    mux4_1 bit3 (.Out(Out[3]),.InA(InA[3]),.InB(InB[3]),.InC(InC[3]),.InD(InD[3]),.S(S));
 
-    assign Out = {b_3, b_2, b_1, b_0};
 
 endmodule
